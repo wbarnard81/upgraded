@@ -22,49 +22,59 @@
         <div><img src="public/images/computer.jpg" alt="Inside of a computer"></div>
     </div>
     <p class="email-sent">{{ msg }}</p>
-    <div class="wrapper animated bounceInLeft">
-        <div class="company-info">
-            <h3>To get started:</h3>
-            <ul>
-            <li><i class="fas fa-angle-right"></i> Enter your details</li>
-            <li><i class="fas fa-angle-right"></i> Click <strong>SUBMIT</strong></li>
-            <li><i class="fas fa-angle-right"></i> Wait for our reply</li>
-            </ul>
-            <small>Your information is for our eyes only!</small>
+
+    <div id="my-modal" class="modal">
+        <div class="modal-content">
+            <div class="wrapper animated bounceInLeft">
+                
+                <div class="company-info">
+                    <h3>To get started:</h3>
+                    <ul>
+                    <li><i class="fas fa-angle-right"></i> Enter your details</li>
+                    <li><i class="fas fa-angle-right"></i> Click <strong>SUBMIT</strong></li>
+                    <li><i class="fas fa-angle-right"></i> Wait for our reply</li>
+                    </ul>
+                    <small>Your information is for our eyes only!</small>
+                </div>
+                <div class="contact">
+                  <span class="close">&times;</span>
+                    <h3>Email Us</h3>
+                    <form method="POST" action="send">
+                    <p>
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required maxlength="40">
+                    </p>
+                    <p>
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="jdoe@mail.com" required maxlength="50">
+                    </p>
+                    <p>
+                        <label>Phone Number</label>
+                        <input type="number" name="phone" placeholder="082 123 4567" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "10">
+                    </p>
+                    <p>
+                        <label>Budget available</label>
+                        <input type="number" name="company" placeholder="1000.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "8">
+                    </p>
+                    <p class="full">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required maxlength="400"></textarea>
+                    </p>
+                    <p class="full">
+                        <button type="submit">Submit</button>
+                    </p>
+                    </form>
+                </div>
+            </div>
         </div>
-      <div class="contact">
-        <h3>Email Us</h3>
-        <form method="POST" action="send">
-          <p>
-            <label>Full Name</label>
-            <input type="text" name="name" placeholder="John Doe" required maxlength="40">
-          </p>
-          <p>
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="jdoe@mail.com" required maxlength="50">
-          </p>
-          <p>
-            <label>Phone Number</label>
-            <input type="number" name="phone" placeholder="082 123 4567" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              type = "number"
-              maxlength = "10">
-          </p>
-          <p>
-            <label>Budget available</label>
-            <input type="number" name="company" placeholder="1000.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              type = "number"
-              maxlength = "8">
-          </p>
-          <p class="full">
-            <label>Message</label>
-            <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required maxlength="400"></textarea>
-          </p>
-          <p class="full">
-            <button type="submit">Submit</button>
-          </p>
-        </form>
-      </div>
     </div>
+
+    <button id="modal-btn" class="button">Click Here</button>
+
   </div>
   <footer>
       <div class="container">
@@ -73,6 +83,7 @@
           </div>
       </div>
   </footer>
+
+  <script src="public/js/main.js"></script>
 </body>
-<script src="public/js/main.js"></script>
 </html>
