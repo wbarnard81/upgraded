@@ -37,23 +37,27 @@
         <form method="POST" action="send">
           <p>
             <label>Full Name</label>
-            <input type="text" name="name" placeholder="John Doe" required>
+            <input type="text" name="name" placeholder="John Doe" required maxlength="40">
           </p>
           <p>
             <label>Email Address</label>
-            <input type="email" name="email" placeholder="jdoe@mail.com" required>
+            <input type="email" name="email" placeholder="jdoe@mail.com" required maxlength="50">
           </p>
           <p>
             <label>Phone Number</label>
-            <input type="number" name="phone" placeholder="082 123 4567" required>
+            <input type="number" name="phone" placeholder="082 123 4567" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              type = "number"
+              maxlength = "10">
           </p>
           <p>
             <label>Budget available</label>
-            <input type="number" name="company" placeholder="1000.00" required>
+            <input type="number" name="company" placeholder="1000.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              type = "number"
+              maxlength = "8">
           </p>
           <p class="full">
             <label>Message</label>
-            <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required></textarea>
+            <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required maxlength="400"></textarea>
           </p>
           <p class="full">
             <button type="submit">Submit</button>
