@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Upgraded Ccomputers</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="icon" href="public/images/favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>Upgraded</span> Computers</h1>
+    <h3><span class="txt-type" data-wait="3000" data-words='["Welcome", "Lets get started", "I am sure we can help You!"]'></span></h3>
+    <div class="aboutus">
+        <div class="centertext">You have had your computer for a while now and it just seems to be running slower and slower each day. You are nearing the point, where you
+            just want to give up. It's frustrating, but what can you do. You know the computer shops ask a lot of money to upgrade, and normally they just want to sell you
+            a new computer anyway. If only they understood, that you are on a budget and can't afford it now, to buy that fancy smancy computer. 
+        </div>
+        <div><img src="public/images/computer.jpg" alt="Inside of a computer"></div>
+    </div>
+    <p class="email-sent">{{ msg }}</p>
+    <div class="wrapper animated bounceInLeft">
+        <div class="company-info">
+            <h3>To get started:</h3>
+            <ul>
+            <li><i class="fas fa-angle-right"></i> Enter your details</li>
+            <li><i class="fas fa-angle-right"></i> Click <strong>SUBMIT</strong></li>
+            <li><i class="fas fa-angle-right"></i> Wait for our reply</li>
+            </ul>
+            <small>Your information is for our eyes only!</small>
+        </div>
+      <div class="contact">
+        <h3>Email Us</h3>
+        <form method="POST" action="send">
+          <p>
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="jdoe@mail.com" required>
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="number" name="phone" placeholder="082 123 4567" required>
+          </p>
+          <p>
+            <label>Budget available</label>
+            <input type="number" name="company" placeholder="1000.00" required>
+          </p>
+          <p class="full">
+            <label>Message</label>
+            <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required></textarea>
+          </p>
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+      <div class="container">
+          <div><strong>Disclaimer:</strong>  We will do our best to make sure you get the result you are looking for. Sometimes we purchase new parts and other times we 
+              will look at the second hand market, but you will always be informed of what we are doing and what the costs are.
+          </div>
+      </div>
+  </footer>
+</body>
+<script src="public/js/main.js"></script>
+</html>

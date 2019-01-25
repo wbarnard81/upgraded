@@ -1,0 +1,25 @@
+{
+  "name": "upgraded",
+  "version": "1.0.0",
+  "description": "Upgrade your computer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "keywords": [
+    "upgrade",
+    "computers"
+  ],
+  "author": "Werner Barnard",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "nodemailer": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
