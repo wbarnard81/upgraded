@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.json({"responseError" : "Please select captcha first"});
+      return res.render('contact', {msg: "Please select captcha first."}) //res.json({"responseError" : "Please select captcha first"});
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
