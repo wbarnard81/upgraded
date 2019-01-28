@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
+const request = require('request');
 
 const app = express();
 
@@ -23,7 +24,21 @@ app.get('/', (req, res) => {
 })
 
 app.post('/send', (req, res) => {
-    const output = `
+    if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
+    {
+      return res.json({"responseError" : "Please select captcha first"});
+    }
+    const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
+  
+    const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+  
+    request(verificationURL,function(error,response,body) {
+      body = JSON.parse(body);
+  
+      if(body.success !== undefined && !body.success) {
+        return res.json({"responseError" : "Failed captcha verification"});
+      }
+      const output = `
         <p>You have a new contact request</p>
         <h3>Contact Details</h3>
         <ul>
@@ -57,7 +72,7 @@ app.post('/send', (req, res) => {
       
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"Upgraded Request" <admin@easyup.co.za>', // sender address
+            from: '"EasyUPgrade Contact Form" <admin@easyup.co.za>', // sender address
             to: "admin@easyup.co.za", // list of receivers
             subject: "Upgrade request", // Subject line
             text: "Hello world?", // plain text body
@@ -73,10 +88,8 @@ app.post('/send', (req, res) => {
       }
       
       main().catch(console.error);
-      
-      
-
-})
+    });
+  });
 
 const port = process.env.PORT || 8080;
 
