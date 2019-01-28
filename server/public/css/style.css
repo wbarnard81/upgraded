@@ -181,7 +181,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .button{
-  width:100%;
+  width:200px;
   padding:1em;
   border:1px solid #c9e6ff;
   background:#c9e6ff;
@@ -202,4 +202,35 @@ input[type=number]::-webkit-outer-spin-button {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
+}
+
+.contact-email {
+  color: #485e74;
+}
+
+.contact-email:hover {
+  background-color: #485e74;
+  color:#92bde7;
+}
+
+#usage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:20px;
+  margin:0;
+  grid-column: 1 / 3;
+  width:100%;
+  padding:1em;
+  border:1px solid #c9e6ff;
+}
+
+#location{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:20px;
+  margin:0;
+  grid-column: 1 / 3;
+  width:100%;
+  padding:1em;
+  border:1px solid #c9e6ff;
 }

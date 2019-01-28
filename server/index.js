@@ -31,6 +31,8 @@ app.post('/send', (req, res) => {
             <li>Budget: ${req.body.company}</li>
             <li>Email: ${req.body.email}</li>
             <li>Phone: ${req.body.phone}</li>
+            <li>Usage: ${req.body.usage}</li>
+            <li>Location: ${req.body.location}</li>
         </ul>
         <h3>Message</h3>
         <p>${req.body.message}</p>
@@ -56,7 +58,7 @@ app.post('/send', (req, res) => {
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Upgraded Request" <admin@easyup.co.za>', // sender address
-            to: `admin@easyup.co.za, ${req.body.email}`, // list of receivers
+            to: "admin@easyup.co.za", // list of receivers
             subject: "Upgrade request", // Subject line
             text: "Hello world?", // plain text body
             html: output // html body

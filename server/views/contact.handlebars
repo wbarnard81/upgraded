@@ -17,9 +17,16 @@
     <div class="aboutus">
         <div class="centertext">You have had your computer for a while now and it just seems to be running slower and slower each day. You are nearing the point, where you
             just want to give up. It's frustrating, but what can you do. You know the computer shops ask a lot of money to upgrade, and normally they just want to sell you
-            a new computer anyway. If only they understood, that you are on a budget and can't afford it now, to buy that fancy smancy computer. 
+            a new computer anyway. If only they understood, that you are on a budget and can't afford to buy that fancy smancy computer. 
         </div>
         <div><img src="public/images/computer.jpg" alt="Inside of a computer"></div>
+    </div>
+    <div class="aboutus">
+        <div><img src="public/images/achievement.jpg" alt="Inside of a computer"></div>
+        <div class="centertext">This is where we come in. We will search the internet for the best available deals and send you a quote, based on your budget. Once you are happy
+            and payment has been made, we will get you up and running in no time. 
+        </div>
+        
     </div>
     <p class="email-sent">{{ msg }}</p>
 
@@ -56,13 +63,34 @@
                     </p>
                     <p>
                         <label>Budget available</label>
-                        <input type="number" name="company" placeholder="1000.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        <input type="number" name="company" placeholder="2500.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                         type = "number"
                         maxlength = "8">
                     </p>
+                    <p>
+                        <label>Computer used for</label>
+                        <select name="usage" id="usage">
+                            <option value="Gaming">Gaming</option>
+                            <option value="HomeOffice">Home/Office</option>
+                        </select>
+                    </p>
+                    <p>
+                    <label>Location</label>
+                        <select name="location" id="location">
+                            <option value="Gauteng">Gauteng</option>
+                            <option value="Western Cape">Western Cape</option>
+                            <option value="Northern Cape">Northern Cape</option>
+                            <option value="North West">North West</option>
+                            <option value="Free State">Free State</option>
+                            <option value="Eastern Cape">Eastern Cape</option>
+                            <option value="Kwazulu Natal">Kwazulu Natal</option>
+                            <option value="Mpumalanga">Mpumalanga</option>
+                            <option value="Limpopo">Limpopo</option>
+                        </select>
+                    </p>
                     <p class="full">
                         <label>Message</label>
-                        <textarea name="message" rows="5" placeholder="My computer is slow and I want to upgrade... / I am looking for a computer..." required maxlength="400"></textarea>
+                        <textarea name="message" rows="5" placeholder="My computer is running slow and I want to upgrade... OR I am looking for a second hand / new computer..." required maxlength="400"></textarea>
                     </p>
                     <p class="full">
                         <button type="submit">Submit</button>
@@ -72,8 +100,8 @@
             </div>
         </div>
     </div>
-
-    <button id="modal-btn" class="button">Click Here</button>
+    <p>You can contact us by sending an email to <a class="contact-email" href="mailto:admin@easyup.co.za">admin@easyup.co.za</a> or by clicking the button below.</p>
+    <button id="modal-btn" class="button">Contact Us Form</button>
 
   </div>
   <footer>
