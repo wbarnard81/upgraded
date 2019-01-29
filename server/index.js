@@ -30,7 +30,7 @@ app.get('/send', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.render('send', {msgClass: "error", error: "Please select captcha first."}) //res.json({"responseError" : "Please select captcha first"});
+      return res.send({msgClass: "error", error: "Please select captcha first."})
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
@@ -40,7 +40,7 @@ app.post('/send', (req, res) => {
       body = JSON.parse(body);
   
       if(body.success !== undefined && !body.success) {
-        return res.render('send', {msgClass: "error", error: "Failed captcha verification."}) //res.json({"responseError" : "Failed captcha verification"});
+        return res.send({msgClass: "error", error: "Failed captcha verification."})
       }
       const output = `
         <p>You have a new contact request</p>
@@ -59,31 +59,26 @@ app.post('/send', (req, res) => {
 
     async function main(){
 
-        // Generate test SMTP service account from ethereal.email
-        // Only needed if you don't have a real mail account for testing
         let account = await nodemailer.createTestAccount();
       
-        // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
             host: "mail.easyup.co.za",
             port: 465,
-            secure: true, // true for 465, false for other ports
+            secure: true,
             auth: {
-              user: 'admin@easyup.co.za', // generated ethereal user admin@easyup.co.za
-              pass: 'tvS1@xsO}S*~' // generated ethereal password tvS1@xsO}S*~
+              user: 'admin@easyup.co.za',
+              pass: 'tvS1@xsO}S*~'
             }
           });
       
-        // setup email data with unicode symbols
         let mailOptions = {
-            from: '"EasyUPgrade Contact Form" <admin@easyup.co.za>', // sender address
-            to: "admin@easyup.co.za", // list of receivers
-            subject: "Upgrade request", // Subject line
-            text: "Hello world?", // plain text body
-            html: output // html body
+            from: '"EasyUPgrade Contact Form" <admin@easyup.co.za>',
+            to: "admin@easyup.co.za",
+            subject: "Upgrade request",
+            text: "Hello world?",
+            html: output
           };
       
-        // send mail with defined transport object
         let info = await transporter.sendMail(mailOptions)
       
         console.log("Message sent: %s", info.messageId);

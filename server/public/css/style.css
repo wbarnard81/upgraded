@@ -215,7 +215,7 @@ input[type=number]::-webkit-outer-spin-button {
   border:1px solid #c9e6ff;
 }
 
-.alert {
+.error {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
