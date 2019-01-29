@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.send({error: "Please select captcha first."}) //res.json({"responseError" : "Please select captcha first"});
+      return res.render('send', {error: "Please select captcha first."}) //res.json({"responseError" : "Please select captcha first"});
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
@@ -36,7 +36,7 @@ app.post('/send', (req, res) => {
       body = JSON.parse(body);
   
       if(body.success !== undefined && !body.success) {
-        return res.send({error: "Failed captcha verification."}) //res.json({"responseError" : "Failed captcha verification"});
+        return res.render('send', {error: "Failed captcha verification."}) //res.json({"responseError" : "Failed captcha verification"});
       }
       const output = `
         <p>You have a new contact request</p>
@@ -83,7 +83,7 @@ app.post('/send', (req, res) => {
         let info = await transporter.sendMail(mailOptions)
       
         console.log("Message sent: %s", info.messageId);
-        res.render('contact', {msg: "Email has been sent"});
+        res.render('send', {msg: "Email has been sent"});
         
       }
       
