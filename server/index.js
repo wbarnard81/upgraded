@@ -44,7 +44,7 @@ app.post('/send', (req, res) => {
       body = JSON.parse(body);
   
       if(body.success !== undefined && !body.success) {
-        return res.render('send', { messages: req.flash("Failed captcha verification."})
+        return res.render('index', { messages: req.flash('Failed captcha verification.') });
       }
       const output = `
         <p>You have a new contact request</p>
