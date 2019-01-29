@@ -30,7 +30,7 @@ app.get('/send', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.send({msgClass: "error", error: "Please select captcha first."})
+      return res.redirect('back', {msgClass: "error", error: "Please select captcha first."})
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
@@ -40,7 +40,7 @@ app.post('/send', (req, res) => {
       body = JSON.parse(body);
   
       if(body.success !== undefined && !body.success) {
-        return res.send({msgClass: "error", error: "Failed captcha verification."})
+        return res.redirect('back', {msgClass: "error", error: "Failed captcha verification."})
       }
       const output = `
         <p>You have a new contact request</p>
