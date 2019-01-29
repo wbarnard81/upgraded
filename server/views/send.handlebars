@@ -1,14 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mail Sent</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EasyUPgrade Computers</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="icon" href="public/images/favicon.ico">
 </head>
 <body>
-    <h1>{{ error }}</h1> 
-    <h1>{{ msg }}</h1>
-    <a href="#" onclick="history.go(-1)">Go Back</a>
+  <div class="container">
+    <h1 class="brand"><span>EasyUP</span>grade Computers</h1>
+    <h3><span class="txt-type" data-wait="3000" data-words='["Welcome", "Lets get started", "I am sure we can help You!"]'></span></h3>  
+    <p class="email-sent">{{ msg }}{{ error }}</p>
+    <div class="wrapper animated bounceInLeft">
+        <div class="company-info">
+            <h3>To get started:</h3>
+            <ul>
+            <li><i class="fas fa-angle-right"></i> Enter your details</li>
+            <li><i class="fas fa-angle-right"></i> Click <strong>SUBMIT</strong></li>
+            <li><i class="fas fa-angle-right"></i> Wait for our reply</li>
+            </ul>
+            <small>Your information is for our eyes only!</small>
+        </div>
+        <div class="contact">
+            <h3>Email Us</h3>
+            <form method="POST" action="send">
+            <p>
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required maxlength="40">
+            </p>
+            <p>
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="jdoe@mail.com" required maxlength="50">
+            </p>
+            <p>
+                <label>Phone Number</label>
+                <input type="number" name="phone" placeholder="082 123 4567" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "number"
+                maxlength = "10">
+            </p>
+            <p>
+                <label>Budget available</label>
+                <input type="number" name="company" placeholder="2500.00" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "number"
+                maxlength = "8">
+            </p>
+            <p>
+                <label>Computer used for</label>
+                <select name="usage" id="usage">
+                    <option value="Gaming">Gaming</option>
+                    <option value="HomeOffice">Home/Office</option>
+                </select>
+            </p>
+            <p>
+            <label>Location</label>
+                <select name="location" id="location">
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="Western Cape">Western Cape</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Kwazulu Natal">Kwazulu Natal</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Limpopo">Limpopo</option>
+                </select>
+            </p>
+            <p class="full">
+                <label>Message</label>
+                <textarea name="message" rows="5" placeholder="My computer is running slow and I want to upgrade... OR I am looking for a second hand / new computer..." required maxlength="400"></textarea>
+            </p>
+            <div class="g-recaptcha" data-sitekey="6LdanDcUAAAAAAu0UDM7DnuVLkrh-hH6xutPhO9c"></div>
+            <p class="full">
+                <button type="submit">Submit</button>
+            </p>
+            </form>
+        </div>
+    </div>
+
+  </div>
+  <footer>
+      <div class="container">
+          <div><strong>Disclaimer:</strong>  We will do our best to make sure you get the result you are looking for. Sometimes we purchase new parts and other times we 
+              will look at the second hand market, but you will always be informed of what we are doing and what the costs are.
+          </div>
+      </div>
+  </footer>
+
+  <script src="public/js/main.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

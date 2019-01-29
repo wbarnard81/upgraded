@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
     res.render('contact')
 })
 
+app.get('/send', (req, res) => {
+    res.render('send')
+})
+
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
