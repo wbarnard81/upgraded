@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const request = require('request');
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
+//Connect-Flash middelware
+app.use(flash());
+
 app.get('/', (req, res) => {
     res.render('contact')
 })
@@ -30,7 +34,7 @@ app.get('/send', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.redirect('back', {msgClass: "error", error: "Please select captcha first."})
+      return res.render('send', { messages: req.flash('Please select captcha first.') });//redirect('back', {msgClass: "error", error: "Please select captcha first."})
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
@@ -40,7 +44,7 @@ app.post('/send', (req, res) => {
       body = JSON.parse(body);
   
       if(body.success !== undefined && !body.success) {
-        return res.redirect('back', {msgClass: "error", error: "Failed captcha verification."})
+        return res.render('send', { messages: req.flash("Failed captcha verification."})
       }
       const output = `
         <p>You have a new contact request</p>
