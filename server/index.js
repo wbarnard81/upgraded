@@ -30,7 +30,7 @@ app.get('/send', (req, res) => {
 app.post('/send', (req, res) => {
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null)
     {
-      return res.render('send', {msgClass: "error", error: "Please select captcha first."})
+      return res.render('send', {msgClass: "error", error: "Please select the reCAPTCHA first."})
     }
     const secretKey = "6LdanDcUAAAAANmMBslXEGJ08du_D9odhpMkjdBY";
   
